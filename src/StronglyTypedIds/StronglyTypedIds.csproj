@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>A55.StronglyTypedIds</PackageId>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <Nullable>enable</Nullable>
     <PackageId>StronglyTypedId</PackageId>

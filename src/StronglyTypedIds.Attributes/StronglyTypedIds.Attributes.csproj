@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Nullable>enable</Nullable>
     <RootNamespace>StronglyTypedIds</RootNamespace>
+    <PackageId>A55.StronglyTypedIds.Attributes</PackageId>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
