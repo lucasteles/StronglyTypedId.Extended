@@ -5,7 +5,7 @@ This is a fork of [StronglyTypedId](https://github.com/andrewlock/StronglyTypedI
 ![StronglyTypedId logo](https://raw.githubusercontent.com/lucasteles/StronglyTypedId.Extended/master/logo.png)
 
 ![Build status](https://github.com/lucasteles/StronglyTypedId.Extended/actions/workflows/BuildAndPack.yml/badge.svg)
-[![NuGet](https://img.shields.io/nuget/v/StronglyTypedId.Extended.svg)](https://www.nuget.org/packages/StronglyTypedId.Extended/)
+[![NuGet](https://img.shields.io/nuget/v/StronglyTypedIds.Extended.svg)](https://www.nuget.org/packages/StronglyTypedIds.Extended/)
 
 StronglyTypedId makes creating strongly-typed IDs as easy as adding an attribute! No more [accidentally passing arguments in the wrong order to methods](https://andrewlock.net/using-strongly-typed-entity-ids-to-avoid-primitive-obsession-part-1/#an-example-of-the-problem) - StronglyTypedId uses .NET 6's compile-time incremental source generators to generate [the boilerplate](https://andrewlock.net/using-strongly-typed-entity-ids-to-avoid-primitive-obsession-part-2/#a-full-example-implementation) required to use strongly-typed IDs.
 
