@@ -1,9 +1,11 @@
-# StronglyTypedId
+# StronglyTypedId.Extended
 
-![StronglyTypedId logo](https://raw.githubusercontent.com/andrewlock/StronglyTypedId/master/logo.png)
+This is a fork of [StronglyTypedId](https://github.com/andrewlock/StronglyTypedId) adding some features
 
-![Build status](https://github.com/andrewlock/StronglyTypedId/actions/workflows/BuildAndPack.yml/badge.svg)
-[![NuGet](https://img.shields.io/nuget/v/StronglyTypedId.svg)](https://www.nuget.org/packages/StronglyTypedId/)
+![StronglyTypedId logo](https://raw.githubusercontent.com/lucasteles/StronglyTypedId.Extended/master/logo.png)
+
+![Build status](https://github.com/lucasteles/StronglyTypedId.Extended/actions/workflows/BuildAndPack.yml/badge.svg)
+[![NuGet](https://img.shields.io/nuget/v/StronglyTypedId.Extended.svg)](https://www.nuget.org/packages/StronglyTypedId.Extended/)
 
 StronglyTypedId makes creating strongly-typed IDs as easy as adding an attribute! No more [accidentally passing arguments in the wrong order to methods](https://andrewlock.net/using-strongly-typed-entity-ids-to-avoid-primitive-obsession-part-1/#an-example-of-the-problem) - StronglyTypedId uses .NET 6's compile-time incremental source generators to generate [the boilerplate](https://andrewlock.net/using-strongly-typed-entity-ids-to-avoid-primitive-obsession-part-2/#a-full-example-implementation) required to use strongly-typed IDs.
 
@@ -22,29 +24,6 @@ and the source generator magically generates the backing code when you save the 
 
 > StronglyTypedId requires requires [the .NET Core SDK v6.0.100 or greater](https://dotnet.microsoft.com/download/dotnet/6.0).
 
-## Changes in version 1.x
-
-Version 0.x of this library used the helper library [CodeGeneration.Roslyn](https://github.com/AArnott/CodeGeneration.Roslyn) by [AArnott](https://github.com/AArnott), for build-time source generation. In version 1.0.0 this approach has been completely replaced in favour of source generators, as these are explicitly supported in .NET 6+. As part of this change, there were a number of additional features added and breaking changes made.
-
-### Breaking Changes
-
-* `StronglyTypedIds` namespace is required. In version 0.x of the library, the `[StronglyTypedId]` attribute was in the global namespace. In version 1.x, the attribute is in the `StronglyTypedIds` namespace, so you must add `namespace StronglyTypedIds;`.
-* The properties exposed by `StronglyTypedIds` have changed: there is no longer a `generateJsonConverter` property. Instead, this is infered based on the `StronglyTypedIdConverters` flags provided.
-* The `String` backing typed ID will throw if you call the constructor with a `null` value
-
-### New Features
-
-* The attributes can now auto-generate additional converter types such as EF Core `ValueConverter` and Dapper `TypeHandler`, as described in [my blog posts](https://andrewlock.net/series/using-strongly-typed-entity-ids-to-avoid-primitive-obsession/). These are optional flags on the `converters` property.
-* Made interface implementations (`IEquatable<T>` and `IComparable<T>` currently) optional. This is to potentially support additional interfaces in future versions.
-* Added a `NullableString` backing type. Due to the behaviour of `struct`s in c#, the `String` backing type ID _may_ still be null, but you can't explicitly call the constructor with a null value. In contrast, you can do this with the `NullableString` backing type.
-* Added a `[StronglyTypedIdDefaults]` attribute to set default values for all `[StronglyTypedId]` attributes in your project. This is useful if you want to customise all the attributes, for example, if you want to generate additional converters by default. You can still override all the properties of a `[StronglyTypedId]` instance.
-
-### Bug Fixes
- 
-* Some converters had incorrect implementations, such as in ([#24](https://github.com/andrewlock/StronglyTypedId/issues/24)). These have been addressed in version 1.x.
-* Better null handling has been added for the `String` backing type, handling issues such as [#32](https://github.com/andrewlock/StronglyTypedId/issues/32).
-* The code is marked as auto generated, to avoid errors such as #CS1591 as described in [#27](https://github.com/andrewlock/StronglyTypedId/issues/27)
-* An error deserializing nullable StronglyTypedIds with Newtonsoft.Json [#36](https://github.com/andrewlock/StronglyTypedId/issues/36)
 
 ## Installing
 

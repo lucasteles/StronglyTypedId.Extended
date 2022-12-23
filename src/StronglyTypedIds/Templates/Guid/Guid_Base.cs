@@ -7,7 +7,8 @@
             Value = value;
         }
 
-        public static TESTID New() => new TESTID(System.Guid.NewGuid());
+        public static TESTID New() => new TESTID(MassTransit.NewId.NextGuid());
+        public static TESTID NewRandom() => new TESTID(System.Guid.NewGuid());
         public static readonly TESTID Empty = new TESTID(System.Guid.Empty);
 
         public bool Equals(TESTID other) => this.Value.Equals(other.Value);
